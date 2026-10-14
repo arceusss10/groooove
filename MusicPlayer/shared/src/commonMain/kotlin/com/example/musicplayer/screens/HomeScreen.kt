@@ -20,11 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.example.musicplayer.model.Song
+import com.example.musicplayer.presentation.home.HomeUiState
 
 
 @Composable
 fun HomeScreen(
-    songs: List<Song>
+    uiState: HomeUiState
 ){
     LazyColumn(
         modifier = Modifier
@@ -45,7 +46,7 @@ fun HomeScreen(
                 style = MaterialTheme.typography.titleLarge
             )
         }
-        items(songs){ song->
+        items(uiState.songs){ song->
             SongItem(
                 song = song,
             )
