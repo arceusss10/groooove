@@ -1,5 +1,6 @@
 package com.example.musicplayer
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -9,6 +10,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.example.musicplayer.components.BottomNavigationBar
+import com.example.musicplayer.components.MiniPlayer
 import com.example.musicplayer.data.MusicRepository
 import com.example.musicplayer.model.Song
 import com.example.musicplayer.navigation.Screen
@@ -35,12 +37,23 @@ fun App() {
         Scaffold(
 
             bottomBar = {
-                BottomNavigationBar(
-                    currentScreen = currentScreen,
-                    onScreenSelected = { screen ->
-                        currentScreen = screen
-                    }
-                )
+                Column {
+                    MiniPlayer(
+                        "Let Down",
+                        "Radiohead",
+                        false,
+                        onPlayPauseClick = {
+
+                        }, onPlayerClick = {
+
+                        })
+                    BottomNavigationBar(
+                        currentScreen = currentScreen,
+                        onScreenSelected = { screen ->
+                            currentScreen = screen
+                        }
+                    )
+                }
             }
 
         ) { _ ->
